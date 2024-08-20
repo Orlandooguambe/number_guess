@@ -2,7 +2,7 @@
 PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
 
 # Solicita o nome de usuário
-#echo "Enter your username:"
+echo "Enter your username:"
 read USERNAME
 
 # Verifica se o usuário existe no banco de dados
