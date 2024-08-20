@@ -8,7 +8,7 @@ read USERNAME
 # Verifica se o usuário existe no banco de dados
 USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
 
-#if [[ -z $USER_INFO ]]
+if [[ -z $USER_INFO ]]
 then
   # Usuário novo
   echo "Welcome, $USERNAME! It looks like this is your first time here."
