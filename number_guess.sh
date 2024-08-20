@@ -13,7 +13,7 @@ then
   # Usuário novo
   echo "Welcome, $USERNAME! It looks like this is your first time here."
   # Insere o novo usuário no banco de dados
-  #INSERT_USER_RESULT=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
+  INSERT_USER_RESULT=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
  # USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
 else
   # Usuário existente
