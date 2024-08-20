@@ -1,4 +1,5 @@
 #!/bin/bash
+
 PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
 
 # Solicita o nome de usuário
@@ -14,7 +15,7 @@ then
   echo "Welcome, $USERNAME! It looks like this is your first time here."
   # Insere o novo usuário no banco de dados
   INSERT_USER_RESULT=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
- # USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
+  USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
 else
   # Usuário existente
   echo $USER_INFO | while IFS="|" read USER_ID GAMES_PLAYED BEST_GAME
@@ -47,6 +48,7 @@ do
   # Compara o palpite com o número secreto
   if [[ $GUESS -eq $SECRET_NUMBER ]]
   then
+    # Quando o número é adivinhado corretamente, imprime a mensagem e finaliza
     echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
     
     # Atualiza os dados do usuário no banco de dados
