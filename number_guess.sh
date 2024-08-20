@@ -2,19 +2,19 @@
 PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
 
 # Solicita o nome de usuário
-echo "Enter your username:"
+#echo "Enter your username:"
 read USERNAME
 
 # Verifica se o usuário existe no banco de dados
-USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
+#USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
 
-if [[ -z $USER_INFO ]]
+#if [[ -z $USER_INFO ]]
 then
   # Usuário novo
   echo "Welcome, $USERNAME! It looks like this is your first time here."
   # Insere o novo usuário no banco de dados
-  INSERT_USER_RESULT=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
-  USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
+  #INSERT_USER_RESULT=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
+ # USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
 else
   # Usuário existente
   echo $USER_INFO | while IFS="|" read USER_ID GAMES_PLAYED BEST_GAME
